@@ -1,0 +1,80 @@
+<!--  -->
+<!--  -->
+<!doctype html>
+<html lang="en" class="h-full" data-theme="dark">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:300,400,500,600,700&family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Contact Aurora Coffee for wholesale, press, or general inquiries." />
+  <title>Contact — Aurora Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{ font-family: 'Poppins', sans-serif; background: linear-gradient(180deg,#071023,#0b1220); color:#e6eef8; }
+    .glass{ background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); backdrop-filter: blur(6px); }
+  </style>
+</head>
+<body style="font-family: 'Playfair Display', sans-serif;" class="w-full min-h-screen">
+  <header class="w-full p-6 md:px-12 lg:px-24 fixed top-0 left-0 glass border-b border-white/6 z-40">
+    <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-purple-400 flex items-center justify-center font-bold text-slate-900">A</div>
+      <div class="leading-tight"><div class="font-semibold">Aurora Coffee</div><div class="text-xs text-white/70">Small Batch Roasters</div></div>
+    </a>
+  </header>
+
+  <main class="pt-28 w-full px-6 md:px-12 lg:px-24 max-w-none">
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h1 class="text-3xl font-semibold">Let's Talk</h1>
+        <p class="mt-2 text-white/80">Wholesale, press, custom roasts, or general questions — send us a message and we'll connect within 48 hours.</p>
+        <div class="mt-6 glass rounded-xl p-6">
+          <h3 class="font-semibold">Contact Info</h3>
+          <div class="mt-2 text-sm text-white/80">Email: hello@auroracoffee.example</div>
+          <div class="text-sm text-white/80">Phone: (555) 123-COFFEE</div>
+          <div class="text-sm text-white/80 mt-2">Address: 243 Roast Ln, Portland, OR</div>
+        </div>
+      </div>
+      <div>
+        <form id="contactForm" class="glass p-6 rounded-xl" novalidate>
+          <label class="block text-sm">Full name</label>
+          <input name="name" aria-label="Full name" required class="w-full p-3 rounded-md mt-1 mb-3" placeholder="Your full name">
+          <label class="block text-sm">Email</label>
+          <input name="email" type="email" aria-label="Email" required class="w-full p-3 rounded-md mt-1 mb-3" placeholder="you@domain.com">
+          <label class="block text-sm">Message</label>
+          <textarea name="message" aria-label="Message" rows="5" required class="w-full p-3 rounded-md mt-1 mb-3" placeholder="Tell us about your inquiry..."></textarea>
+          <div class="flex items-center justify-between">
+            <div class="text-sm text-white/80">We reply within 48 hours.</div>
+            <button type="submit" class="px-5 py-3 bg-amber-400 text-slate-900 rounded-md">Send Message</button>
+          </div>
+          <div id="formMsg" class="mt-3 text-sm" role="status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full mt-12 p-6 md:px-12 lg:px-24">
+    <div class="text-sm text-white/60">© <span id="yearContact"></span> Aurora Coffee</div>
+  </footer>
+
+  <script>
+    document.getElementById('yearContact').textContent = new Date().getFullYear();
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const form = new FormData(contactForm);
+      const payload = { name: form.get('name'), email: form.get('email'), message: form.get('message') };
+      if(!payload.name || !payload.email || !payload.message){ document.getElementById('formMsg').textContent = 'Please fill all fields.'; return; }
+      document.getElementById('formMsg').textContent = 'Sending...';
+      try{
+        const res = await fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+        const json = await res.json();
+        if(res.ok){ document.getElementById('formMsg').textContent = json.message; contactForm.reset(); }
+        else { document.getElementById('formMsg').textContent = json.error || 'Error sending message.'; }
+      }catch(err){ document.getElementById('formMsg').textContent = 'Network error.'; }
+    });
+  </script>
+</body>
+</html>
