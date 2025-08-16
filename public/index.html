@@ -1,0 +1,447 @@
+<!--  -->
+<!--  -->
+<!doctype html>
+<html lang="en" class="h-full" data-theme="light">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:300,400,500,600,700&family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Aurora Coffee — Craft roasted, ethically sourced coffee that elevates your every morning. Explore roasts, story, shop and join our seasonal roaster's club." />
+  <meta property="og:title" content="Aurora Coffee — Small Batch Roasters" />
+  <meta property="og:description" content="Craft roasted, ethically sourced coffee. Explore roasts, shop, and join our roaster's club." />
+  <meta property="og:image" content="https://images.pexels.com/photos/851555/pexels-photo-851555.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" />
+  <title>Aurora Coffee — Small Batch Roasters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: rgba(255,255,255,0.06);
+      --glass: rgba(255,255,255,0.06);
+      --accent: #f6ad55; /* amber-300 */
+      --accent-2: #a78bfa; /* purple-300 */
+      --text: #e6eef8;
+      --muted: #9aa6b2;
+    }
+    [data-theme="light"]{ --bg: linear-gradient(180deg,#fefefe,#f7f7fb); --card: rgba(255,255,255,0.6); --glass: rgba(255,255,255,0.6); --text:#0b1220; --muted:#394151; }
+    body{ font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: var(--bg); color:var(--text); }
+    h1,h2,h3{ font-family: 'Playfair Display', serif; }
+    .glass{ background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); backdrop-filter: blur(6px); }
+    /* parallax layers */
+    .parallax{ transform: translateZ(0); }
+    /* subtle float animation for hero coffee image */
+    .float-slow{ animation: float 8s ease-in-out infinite; }
+    @keyframes float{ 0%{ transform: translateY(0px);} 50%{ transform: translateY(-12px);} 100%{ transform: translateY(0px);} }
+    /* reveal animation */
+    .reveal{ opacity:0; transform: translateY(18px) scale(.99); transition: all .7s cubic-bezier(.2,.9,.2,1); }
+    .reveal.show{ opacity:1; transform: translateY(0) scale(1); }
+  </style>
+</head>
+<body style="font-family: 'Playfair Display', sans-serif;" class="w-full h-full antialiased selection:bg-amber-300 selection:text-slate-900">
+  <!-- NAV -->
+  <header class="w-full fixed top-0 left-0 z-50">
+    <nav class="w-full flex items-center justify-between p-4 md:px-10 lg:px-16 backdrop-blur glass border-b border-white/6">
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'index.html\'); return false;" class="flex items-center gap-3 no-underline" aria-label="Aurora Coffee home">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-amber-400 to-purple-400 shadow-lg text-slate-900 font-bold">A</div>
+        <div class="leading-tight">
+          <div class="text-sm font-semibold">Aurora Coffee</div>
+          <div class="text-xs text-muted-foreground text-[11px]">Small Batch Roasters</div>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="text-sm text-opacity-90 hover:underline">About</a>
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'services.html\'); return false;" class="text-sm text-opacity-90 hover:underline">Shop</a>
+        <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="text-sm text-opacity-90 hover:underline">Contact</a>
+        <button id="themeToggle" class="ml-2 p-2 rounded-md hover:scale-105 transition-transform" aria-label="Toggle dark mode">🌗</button>
+        <button id="ctaTop" class="ml-4 bg-gradient-to-r from-amber-400 to-purple-400 text-slate-900 px-4 py-2 rounded-md shadow hover:scale-[1.02] transform transition">Shop Now</button>
+      </div>
+      <div class="md:hidden flex items-center gap-2">
+        <button id="mobileMenuBtn" aria-label="Open menu" class="p-2 rounded-md glass">☰</button>
+      </div>
+    </nav>
+    <div id="mobileMenu" class="hidden md:hidden w-full bg-black/40 backdrop-blur glass p-6 border-t border-white/6">
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;" class="block py-2">About</a>
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'services.html\'); return false;" class="block py-2">Shop</a>
+      <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="block py-2">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="main" class="w-full pt-24">
+    <section class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+      <!-- background gradient layers for depth -->
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-slate-900 via-amber-800 to-purple-900 opacity-90"></div>
+      <div aria-hidden class="absolute -top-10 left-0 w-[120%] h-[60%] bg-[url('https://pixabay.com/get/gef445d7ffe51e33853a5e0027dc60fb2bf2d668df07298a7df1685545374468bb812e540199223724d538b6a230d8262d19139e467a7747aaceb3ca09f009d14_640.jpg')] bg-cover bg-center opacity-20 parallax"></div>
+
+      <div class="w-full px-6 md:px-12 lg:px-24 flex items-center justify-between gap-8 max-w-none">
+        <div class="w-full md:w-1/2 space-y-6">
+          <h1 class="text-4xl md:text-6xl leading-tight text-white drop-shadow-lg">Aurora Coffee — Find Your Morning Light</h1>
+          <p class="text-lg md:text-xl text-white/90 max-w-prose">We roast with purpose. Single origin beans, seasonal small-batch expertise, and stories that travel from farmers' hands to your cup. Rediscover coffee that feels like home.</p>
+          <div class="flex items-center gap-4">
+            <a href="#" onclick="window.parent.handlePreviewNavigation(\'services.html\'); return false;" class="inline-flex items-center gap-3 bg-gradient-to-r from-amber-400 to-purple-400 text-slate-900 px-5 py-3 rounded-lg shadow-lg transform hover:scale-[1.03] transition">Explore Roasts →</a>
+            <button id="openQuiz" class="inline-flex items-center gap-3 px-4 py-3 rounded-lg glass border border-white/8 hover:backdrop-blur transition">Take the Roast Quiz</button>
+          </div>
+          <div class="mt-6 flex items-center gap-4">
+            <div class="text-xs text-white/80">Seasonal Drop:</div>
+            <div class="px-3 py-2 rounded-full bg-black/30 text-sm text-amber-200">Ethiopian Sunrise — 48 bags left</div>
+            <div class="text-sm text-white/70">Free shipping on subscriptions — cancel anytime</div>
+          </div>
+        </div>
+
+        <div class="hidden md:block w-1/2 relative">
+          <div class="absolute -right-8 top-8 w-[520px] h-[380px] rounded-3xl glass p-6 shadow-2xl backdrop-blur float-slow">
+            <img loading="lazy" src="https://images.pexels.com/photos/302901/pexels-photo-302901.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Barista pouring latte art" class="w-full h-full object-cover rounded-xl shadow-lg">
+          </div>
+        </div>
+      </div>
+
+      <!-- hero subtle cue -->
+      <a href="#features" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-white/80 animate-bounce">Scroll to explore ↓</a>
+    </section>
+
+    <!-- Features / Values -->
+    <section id="features" class="w-full py-20 px-6 md:px-12 lg:px-24 max-w-none">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass rounded-xl p-6 reveal" tabindex="0">
+          <h3 class="text-xl font-semibold">Single-Origin, Full Story</h3>
+          <p class="text-sm text-white/80 mt-2">We trace every bag back to the farm. Transparent sourcing means fair pay, lasting relationships, and flavor profiles rooted in place.</p>
+        </div>
+        <div class="glass rounded-xl p-6 reveal" tabindex="0">
+          <h3 class="text-xl font-semibold">Small Batch Precision</h3>
+          <p class="text-sm text-white/80 mt-2">Roasted in micro-batches for clarity and vibrant flavors — not for mass, but for meaning.</p>
+        </div>
+        <div class="glass rounded-xl p-6 reveal" tabindex="0">
+          <h3 class="text-xl font-semibold">Community & Craft</h3>
+          <p class="text-sm text-white/80 mt-2">From local workshops to subscription members, Aurora is built around people who love coffee as much as we do.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Roast Quiz + Progress -->
+    <section class="w-full py-12 px-6 md:px-12 lg:px-24 max-w-none">
+      <div class="glass rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-stretch gap-6">
+        <div class="md:w-1/2">
+          <h2 class="text-2xl font-semibold">Find Your Roast — 60s Quiz</h2>
+          <p class="text-sm text-white/80 mt-2">Answer three quick questions and we'll recommend the perfect bag for your flavor story.</p>
+          <div class="mt-4">
+            <div id="quizProgress" aria-hidden="true" class="w-full h-3 bg-white/6 rounded-full overflow-hidden">
+              <div id="quizProgressBar" class="h-3 bg-gradient-to-r from-amber-400 to-purple-400 w-0 transition-all"></div>
+            </div>
+            <div id="quizStep" class="mt-4 text-sm text-white/80">Question 1 of 3</div>
+            <div id="quizQuestion" class="mt-4 text-lg font-medium">How do you like your coffee?</div>
+            <div id="quizOptions" class="mt-4 grid grid-cols-2 gap-3">
+              <button class="optionBtn glass p-3 rounded-lg text-left" data-value="Bright">Bright & Fruity</button>
+              <button class="optionBtn glass p-3 rounded-lg text-left" data-value="Rich">Rich & Chocolatey</button>
+              <button class="optionBtn glass p-3 rounded-lg text-left" data-value="Smoky">Smoky & Bold</button>
+              <button class="optionBtn glass p-3 rounded-lg text-left" data-value="Balanced">Balanced & Nutty</button>
+            </div>
+            <div class="mt-4 flex items-center gap-3">
+              <button id="quizPrev" class="px-4 py-2 rounded-md glass">Back</button>
+              <button id="quizNext" class="px-4 py-2 rounded-md bg-amber-400 text-slate-900">Next</button>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex flex-col justify-center items-center gap-4">
+          <div class="w-full rounded-xl overflow-hidden">
+            <img id="quizImage" loading="lazy" src="https://images.pexels.com/photos/1541216/pexels-photo-1541216.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Roast selection" class="w-full h-56 object-cover">
+          </div>
+          <div class="text-sm text-white/80">Tip: Subscribing saves 15% and guides you through seasonal releases.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery / Carousel -->
+    <section class="w-full py-12 px-6 md:px-12 lg:px-24 max-w-none">
+      <h2 class="text-2xl font-semibold mb-4">Moments — Gallery</h2>
+      <div id="carousel" class="relative w-full overflow-hidden rounded-xl">
+        <div id="slides" class="flex transition-transform duration-700">
+          <img loading="lazy" src="https://images.pexels.com/photos/2079438/pexels-photo-2079438.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Cozy shop" class="w-full h-64 object-cover flex-shrink-0">
+          <img loading="lazy" src="https://images.pexels.com/photos/1419944/pexels-photo-1419944.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Roasted beans" class="w-full h-64 object-cover flex-shrink-0">
+          <img loading="lazy" src="https://pixabay.com/get/gfef7f88ef0052b1ed61771efa35de89662484113ba05588a1c3711e8d76570105383b635c4e472bf399a93975ad72470391e1fdf2f3b40923938c55de9390b24_640.jpg" alt="Coffee farmer" class="w-full h-64 object-cover flex-shrink-0">
+        </div>
+        <button id="prev" aria-label="Previous" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 p-2 rounded-full">‹</button>
+        <button id="next" aria-label="Next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 p-2 rounded-full">›</button>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="w-full py-12 px-6 md:px-12 lg:px-24 max-w-none">
+      <h2 class="text-2xl font-semibold mb-6">They've found their morning</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass rounded-xl p-6">
+          <p class="italic">"Aurora's Ethiopian Sunrise changed how I think about coffee. Vibrant, floral, and unforgettable."</p>
+          <div class="mt-4 text-sm font-semibold">— Mira, Seattle</div>
+        </div>
+        <div class="glass rounded-xl p-6">
+          <p class="italic">"I switched to subscription and my mornings have never been better. Freshness and variety every month."</p>
+          <div class="mt-4 text-sm font-semibold">— Jorge, Austin</div>
+        </div>
+        <div class="glass rounded-xl p-6">
+          <p class="italic">"Great transparency and their farmers note cards are my favorite touch."</p>
+          <div class="mt-4 text-sm font-semibold">— Aisha, Brooklyn</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="w-full py-12 px-6 md:px-12 lg:px-24 max-w-none">
+      <h2 class="text-2xl font-semibold mb-4">FAQ</h2>
+      <div id="faq" class="space-y-3">
+        <div class="glass rounded-lg p-4">
+          <button class="faqBtn w-full text-left flex justify-between items-center" aria-expanded="false">How does the subscription work?<span class="ml-2">+</span></button>
+          <div class="faqPanel mt-2 text-sm text-white/80 hidden">Choose your roast and frequency. Pause or cancel anytime. Members get 15% off and priority access to seasonal drops.</div>
+        </div>
+        <div class="glass rounded-lg p-4">
+          <button class="faqBtn w-full text-left flex justify-between items-center" aria-expanded="false">Where are your beans sourced?<span class="ml-2">+</span></button>
+          <div class="faqPanel mt-2 text-sm text-white/80 hidden">We work directly with growers in Ethiopia, Colombia, and Guatemala. Every bag comes with a traceability card.</div>
+        </div>
+        <div class="glass rounded-lg p-4">
+          <button class="faqBtn w-full text-left flex justify-between items-center" aria-expanded="false">Do you offer wholesale?<span class="ml-2">+</span></button>
+          <div class="faqPanel mt-2 text-sm text-white/80 hidden">Yes — we partner with cafes and offices. Reach out via the contact page for custom pricing.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / Newsletter modal trigger -->
+    <section class="w-full py-12 px-6 md:px-12 lg:px-24 max-w-none">
+      <div class="glass rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-xl font-semibold">Join the Roaster's Circle</h3>
+          <p class="text-sm text-white/80 mt-2">Exclusive drops, early tasting notes, and members-only discounts. Limited early-adopter spots each season.</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <button id="openNewsletter" class="px-5 py-3 bg-amber-400 text-slate-900 rounded-lg">Join Now</button>
+          <a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;" class="px-5 py-3 glass rounded-lg">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 px-6 md:px-12 lg:px-24 max-w-none">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-6">
+        <div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-amber-400 to-purple-400 text-slate-900 font-bold">A</div>
+            <div>
+              <div class="font-semibold">Aurora Coffee</div>
+              <div class="text-sm text-white/80">Small Batch Roasters • Ethically sourced</div>
+            </div>
+          </div>
+          <p class="text-sm text-white/80 mt-4 max-w-md">Every cup is a conversation — with farmers, roastmasters, and the stories that shaped each bean. Brew better mornings.</p>
+        </div>
+        <div class="flex gap-6">
+          <div>
+            <div class="font-semibold">Links</div>
+            <ul class="mt-2 text-sm text-white/80">
+              <li><a href="#" onclick="window.parent.handlePreviewNavigation(\'about.html\'); return false;">About</a></li>
+              <li><a href="#" onclick="window.parent.handlePreviewNavigation(\'services.html\'); return false;">Shop</a></li>
+              <li><a href="#" onclick="window.parent.handlePreviewNavigation(\'contact.html\'); return false;">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="font-semibold">Follow</div>
+            <ul class="mt-2 text-sm text-white/80">
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 text-xs text-white/60">© <span id="year"></span> Aurora Coffee — All rights reserved.</div>
+    </footer>
+  </main>
+
+  <!-- Newsletter Modal -->
+  <div id="newsletterModal" class="fixed inset-0 hidden items-center justify-center z-50 bg-black/50">
+    <div class="w-full max-w-2xl mx-6 glass rounded-xl p-6">
+      <div class="flex justify-between items-center">
+        <h3 class="text-xl font-semibold">Join the Roaster's Circle</h3>
+        <button id="closeNewsletter" aria-label="Close modal" class="p-2">✕</button>
+      </div>
+      <p class="text-sm text-white/80 mt-2">Sign up for early drops, tasting notes, and a 15% subscriber discount.</p>
+      <form id="newsletterForm" class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3" novalidate>
+        <input aria-label="Full name" name="name" required class="p-3 rounded-md" placeholder="Your name">
+        <input aria-label="Email" type="email" name="email" required class="p-3 rounded-md" placeholder="you@domain.com">
+        <div class="md:col-span-2 text-right">
+          <button type="submit" class="px-5 py-3 bg-amber-400 text-slate-900 rounded-md">Join</button>
+        </div>
+      </form>
+      <div id="newsletterMsg" class="mt-3 text-sm"></div>
+    </div>
+  </div>
+
+  <!-- Quiz Modal (opened by hero) -->
+  <div id="quizModal" class="fixed inset-0 hidden items-center justify-center z-50 bg-black/50">
+    <div class="w-full mx-6 glass rounded-xl p-6 max-w-3xl">
+      <div class="flex justify-between items-center">
+        <h3 class="text-xl font-semibold">Roast Quiz — Quick Match</h3>
+        <button id="closeQuiz" aria-label="Close quiz" class="p-2">✕</button>
+      </div>
+      <div class="mt-4">
+        <p class="text-sm text-white/80">We'll ask three quick questions to match you with a roast that resonates with your taste.</p>
+        <div class="mt-4" id="modalQuizArea">
+          <!-- Reuse quiz widget area by cloning content via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Small helper functions and initial states
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle with localStorage
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const saved = localStorage.getItem('aurora-theme') || 'dark';
+    function applyTheme(mode){
+      if(mode === 'light'){
+        document.documentElement.setAttribute('data-theme','light');
+      } else {
+        document.documentElement.setAttribute('data-theme','dark');
+      }
+      localStorage.setItem('aurora-theme', mode);
+    }
+    applyTheme(saved);
+    themeToggle.addEventListener('click', ()=> applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+    // Mobile menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn && mobileMenuBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+
+    // Simple reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) =>{
+      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('show'); obs.unobserve(entry.target); }});
+    },{threshold: .15});
+    revealEls.forEach(el => obs.observe(el));
+
+    // Carousel
+    const slides = document.getElementById('slides');
+    const total = slides.children.length;
+    let idx = 0;
+    function updateCarousel(){ slides.style.transform = `translateX(-${idx * 100}%)`; }
+    document.getElementById('next').addEventListener('click', ()=>{ idx = (idx+1)%total; updateCarousel(); });
+    document.getElementById('prev').addEventListener('click', ()=>{ idx = (idx-1+total)%total; updateCarousel(); });
+    setInterval(()=>{ idx = (idx+1)%total; updateCarousel(); }, 6000);
+
+    // FAQ accordion
+    document.querySelectorAll('.faqBtn').forEach(btn =>{
+      btn.addEventListener('click', ()=>{
+        const panel = btn.nextElementSibling;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        panel.classList.toggle('hidden');
+      });
+    });
+
+    // Quiz logic
+    const questions = [
+      {q: 'How do you like your coffee?', opts: ['Bright','Rich','Smoky','Balanced']},
+      {q: 'Preferred strength?', opts: ['Light','Medium','Bold','Espresso']},
+      {q: 'Flavors you love?', opts: ['Fruity','Chocolate','Nutty','Earthy']},
+    ];
+    let answers = [];
+    let step = 0;
+    const quizProgressBar = document.getElementById('quizProgressBar');
+    const quizStepLabel = document.getElementById('quizStep');
+    const quizQuestion = document.getElementById('quizQuestion');
+    const quizOptions = document.getElementById('quizOptions');
+    const quizImage = document.getElementById('quizImage');
+    function renderQuiz(){
+      quizStepLabel.textContent = `Question ${step+1} of ${questions.length}`;
+      quizQuestion.textContent = questions[step].q;
+      quizOptions.innerHTML = '';
+      questions[step].opts.forEach(opt=>{
+        const btn = document.createElement('button');
+        btn.className = 'optionBtn glass p-3 rounded-lg text-left';
+        btn.type='button'; btn.textContent = opt; btn.dataset.value = opt;
+        btn.addEventListener('click', ()=> selectOption(opt));
+        quizOptions.appendChild(btn);
+      });
+      quizProgressBar.style.width = `${((step)/questions.length)*100}%`;
+      // update image visually
+      quizImage.src = (step===0)? 'https://images.pexels.com/photos/1541216/pexels-photo-1541216.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' : (step===1)? 'https://pixabay.com/get/g0e2760d67e02c775db89d9563cc87840eaaea09af2674bd2469beaf44b5a4c75fc3d8771b29e160a8b4aad7f90c2863ff0c1da6ebcf8a2073a05b16624f636b4_640.jpg' : 'https://images.unsplash.com/photo-1605468596782-502ce2012ef0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHw5fHxBJTIwdGFzdGluZyUyMGZsaWdodCUyMG9mJTIwY29mZmVlJTIwY3VwcyUyMHdpdGglMjBzcG9vbnMlMjBhbmQlMjBub3Rlc3xlbnwwfDB8fHwxNzU1MzE3NDQxfDA&ixlib=rb-4.1.0&q=80&w=1080';
+    }
+    function selectOption(val){ answers[step]=val; }
+    document.getElementById('quizNext').addEventListener('click', ()=>{
+      if(!answers[step]){ alert('Please select an option to continue'); return; }
+      if(step < questions.length-1){ step++; renderQuiz(); }
+      else { // finish
+        quizProgressBar.style.width = '100%';
+        // simple matching logic
+        const counts = {};
+        answers.forEach(a=> counts[a] = (counts[a]||0)+1);
+        // pick most frequent answer
+        let winner = answers[0];
+        for(const k in counts) if(counts[k] > counts[winner]) winner = k;
+        alert('We recommend: ' + mapToRoast(winner));
+        // reset
+        step=0; answers=[]; renderQuiz();
+      }
+    });
+    document.getElementById('quizPrev').addEventListener('click', ()=>{ if(step>0){ step--; renderQuiz(); }});
+    function mapToRoast(v){
+      if(['Bright','Fruity'].includes(v)) return 'Ethiopian Sunrise — Light & Floral';
+      if(['Rich','Chocolate'].includes(v)) return 'Colombian Velvet — Medium Roast, chocolate notes';
+      if(['Smoky','Earthy'].includes(v)) return 'Guatemalan Ember — Dark & Bold';
+      return 'Balanced Morning Blend — Crowd favorite';
+    }
+    renderQuiz();
+
+    // Newsletter modal
+    const newsletterModal = document.getElementById('newsletterModal');
+    document.getElementById('openNewsletter').addEventListener('click', ()=> newsletterModal.classList.remove('hidden'));
+    document.getElementById('closeNewsletter').addEventListener('click', ()=> newsletterModal.classList.add('hidden'));
+    document.getElementById('newsletterForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const form = new FormData(e.target);
+      const name = form.get('name'); const email = form.get('email');
+      if(!name || !email) { document.getElementById('newsletterMsg').textContent = 'Please fill both fields.'; return; }
+      // Simulate API call
+      document.getElementById('newsletterMsg').textContent = 'Joining...';
+      await new Promise(r=>setTimeout(r,900));
+      document.getElementById('newsletterMsg').textContent = 'Welcome to the circle — check your inbox!';
+      e.target.reset();
+    });
+
+    // Hero quiz modal
+    const quizModal = document.getElementById('quizModal');
+    document.getElementById('openQuiz').addEventListener('click', ()=>{
+      quizModal.classList.remove('hidden');
+      // clone quiz widget into modal
+      const modalArea = document.getElementById('modalQuizArea');
+      modalArea.innerHTML = document.querySelector('#quizModal').innerHTML; // placeholder; we'll instead create a simple clone
+      // Instead of cloning the whole widget, inject a lightweight inline quiz
+      modalArea.innerHTML = `
+        <div class=\"p-4 rounded-lg glass\"> 
+          <div id=\"mQuizQuestion\" class=\"font-medium\">${questions[0].q}</div>
+          <div id=\"mQuizOptions\" class=\"mt-4 grid grid-cols-2 gap-3\"></div>
+          <div class=\"mt-4 text-right\"><button id=\"mQuizClose\" class=\"px-4 py-2 rounded-md glass\">Close</button></div>
+        </div>`;
+      const mOptions = document.getElementById('mQuizOptions');
+      questions[0].opts.forEach(o=>{ const b=document.createElement('button'); b.className='p-3 rounded-lg glass'; b.textContent=o; b.addEventListener('click',()=>{ alert('Quick match: ' + mapToRoast(o)); quizModal.classList.add('hidden'); }); mOptions.appendChild(b); });
+      document.getElementById('mQuizClose').addEventListener('click', ()=> quizModal.classList.add('hidden'));
+    });
+    document.getElementById('closeQuiz').addEventListener('click', ()=> quizModal.classList.add('hidden'));
+
+    // Newsletter modal close by overlay
+    newsletterModal.addEventListener('click', (e)=>{ if(e.target === newsletterModal) newsletterModal.classList.add('hidden'); });
+    quizModal.addEventListener('click', (e)=>{ if(e.target === quizModal) quizModal.classList.add('hidden'); });
+
+    // Accessibility: keyboard close
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ newsletterModal.classList.add('hidden'); quizModal.classList.add('hidden'); } });
+
+    // Simple lazy-loading quality: images have loading=lazy already.
+
+    // Form submissions to server
+    // For contact forms on other pages, we'll POST to /api/contact
+  </script>
+</body>
+</html>
